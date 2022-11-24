@@ -42,10 +42,8 @@ node {
             }
         ]
         parallel tests
-        when {
-            expression { params.BRANCH_NAME == 'main' }
-        }
-        timeout(time: 10, unit: 'SECONDS') {
+        if (env.BRANCH_NAME == 'main'){
+            timeout(time: 10, unit: 'SECONDS') {
             // Note that input ties up an executor slot!
             input 'Continue?'
         }
