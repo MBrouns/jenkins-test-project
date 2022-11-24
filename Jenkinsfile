@@ -1,3 +1,5 @@
+// jenkins.io/doc/book/pipeline/jenkinsfile/
+
 class Venv {
     private location
     private stage
@@ -40,8 +42,11 @@ node {
             }
         ]
         parallel tests
+        when {
+            expression { params.BRANCH_NAME == 'main' }
+        }
         timeout(time: 10, unit: 'SECONDS') {
-           //         Note that input ties up an executor slot!
+            // Note that input ties up an executor slot!
             input 'Continue?'
         }
         stage('Deploy') {
