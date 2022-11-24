@@ -18,7 +18,7 @@ class Venv {
 node {
     docker.image('python:3.8').inside() {
         checkout scm
-        def venv = new Venv(this, '/var/jenkins_home/workspace/jenkins-testproject/venv')
+        def venv = new Venv(this, '/home/jenkins-agent/workspace/github-test/venv')
         sh('python --version')
 
 
