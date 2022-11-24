@@ -42,8 +42,8 @@ node {
             }
         ]
         parallel tests
-        echo "running on branch ${env.BRANCH_NAME}"
-        if (env.BRANCH_NAME == 'main'){
+        echo "running on branch ${env.GIT_BRANCH}"
+        if (env.GIT_BRANCH == 'main'){
             timeout(time: 10, unit: 'SECONDS') {
             // Note that input ties up an executor slot!
             input 'Continue?'
