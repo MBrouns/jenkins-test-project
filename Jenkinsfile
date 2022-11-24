@@ -40,10 +40,13 @@ node {
             }
         ]
         parallel tests
-//         Note that input ties up an executor slot!
-        input 'Continue?'
+        timeout(time: 10, unit: 'Seconds') {
+           //         Note that input ties up an executor slot!
+            input 'Continue?'
+        }
         stage('Deploy') {
             echo "Deploying"
+
         }
 
     }
