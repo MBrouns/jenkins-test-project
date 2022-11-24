@@ -40,7 +40,7 @@ node {
             }
         ]
         parallel tests
-        timeout(time: 10, unit: 'Seconds') {
+        timeout(time: 10, unit: 'SECONDS') {
            //         Note that input ties up an executor slot!
             input 'Continue?'
         }
